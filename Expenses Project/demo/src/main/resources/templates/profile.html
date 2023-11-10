@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <p>Welcome, <span th:text="${loggedInUser.firstName}"></span> <span th:text="${loggedInUser.lastName}"></span>!</p>
+        <p>Email: <span th:text="${loggedInUser.email}"></span></p>
+    </div>
+</body>
+</html>

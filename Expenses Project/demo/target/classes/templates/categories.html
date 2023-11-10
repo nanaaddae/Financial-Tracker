@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+    <style>
+      body {
+          background-color: #f8f9fa;
+      }
+      .container {
+          margin-top: 20px;
+      }
+      th, td {
+          text-align: center;
+      }
+      th {
+          background-color: #343a40;
+          color: #fff;
+      }
+      h3 {
+          margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Expense Tracker</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/expense">Expense List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addExpense">Add Expense</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">Expense Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reports">Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Table for "Food" category -->
+        <h3>Food</h3>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Expense Name</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Check if foodExpenses list is empty -->
+                <th:block th:if="${foodExpenses.empty}">
+                    <tr>
+                        <td colspan="3">Nothing available</td>
+                    </tr>
+                </th:block>
+                <!-- Loop through each expense in the foodExpenses list -->
+                <tr th:each="expense : ${foodExpenses}">
+                    <td th:text="${expense.expenseName}"></td>
+                    <td th:text="${expense.amount}"></td>
+                    <td th:text="${expense.date}"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+              <!-- Table for "Transportation" category -->
+              <h3>Transportation</h3>
+              <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                  <tbody>
+                      <!-- Check if transportationExpenses list is empty -->
+                      <th:block th:if="${transportationExpenses.empty}">
+                          <tr>
+                              <td colspan="3">Nothing available</td>
+                          </tr>
+                      </th:block>
+                      <!-- Loop through each expense in the transportationExpenses list -->
+                      <tr th:each="expense : ${transportationExpenses}">
+                          <td th:text="${expense.expenseName}"></td>
+                          <td th:text="${expense.amount}"></td>
+                          <td th:text="${expense.date}"></td>
+                      </tr>
+                  </tbody>
+              </table>
+          
+              <!-- Table for "Essential" category -->
+              <h3>Essential</h3>
+              <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                  <tbody>
+                      <!-- Check if essentialExpenses list is empty -->
+                      <th:block th:if="${essentialExpenses.empty}">
+                          <tr>
+                              <td colspan="3">Nothing available</td>
+                          </tr>
+                      </th:block>
+                      <!-- Loop through each expense in the essentialExpenses list -->
+                      <tr th:each="expense : ${essentialExpenses}">
+                          <td th:text="${expense.expenseName}"></td>
+                          <td th:text="${expense.amount}"></td>
+                          <td th:text="${expense.date}"></td>
+                      </tr>
+                  </tbody>
+              </table>
+          
+              <!-- Table for "Entertainment" category -->
+              <h3>Entertainment</h3>
+              <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                  <tbody>
+                      <!-- Check if entertainmentExpenses list is empty -->
+                      <th:block th:if="${entertainmentExpenses.empty}">
+                          <tr>
+                              <td colspan="3">Nothing available</td>
+                          </tr>
+                      </th:block>
+                      <!-- Loop through each expense in the entertainmentExpenses list -->
+                      <tr th:each="expense : ${entertainmentExpenses}">
+                          <td th:text="${expense.expenseName}"></td>
+                          <td th:text="${expense.amount}"></td>
+                          <td th:text="${expense.date}"></td>
+                      </tr>
+                  </tbody>
+              </table>
+        
+    </div>
+
+    <!-- Your JavaScript and Bootstrap scripts here -->
+
+</body>
+</html>
